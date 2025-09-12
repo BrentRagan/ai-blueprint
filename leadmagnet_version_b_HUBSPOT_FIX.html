@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Marketing Blueprint - Your Free Strategy Awaits</title>
+
+    <!-- HubSpot Tracking Code - Required for form functionality -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/46664559.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a2a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 128, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 128, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .neon-text {
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #ff0080;
+            background: linear-gradient(45deg, #ff0080, #0080ff, #00ffff, #8000ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: neonPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            0% { text-shadow: 0 0 20px #ff0080, 0 0 40px #ff0080; }
+            100% { text-shadow: 0 0 30px #ff0080, 0 0 60px #ff0080, 0 0 80px #0080ff; }
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 40px;
+            background: linear-gradient(45deg, #ff0080, #8000ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(255, 0, 128, 0.8);
+            border-color: #00ffff;
+        }
+
+        .form-section {
+            min-height: 100vh;
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: rgba(10, 10, 10, 0.9);
+            border: 2px solid #ff0080;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(255, 0, 128, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .form-title {
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #00ffff;
+            text-shadow: 0 0 15px #00ffff;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        /* HubSpot Form Container Styling */
+        #hubspot-form-container {
+            width: 100%;
+            min-height: 400px;
+            background: rgba(0, 128, 255, 0.05);
+            border: 2px solid #0080ff;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Enhanced visibility for debugging */
+        .debug-visible {
+            border: 5px solid #ff0080 !important;
+            background: rgba(255, 0, 128, 0.1) !important;
+            box-shadow: 0 0 20px #ff0080 !important;
+        }
+
+        .debug-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00ff00;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 9999;
+            box-shadow: 0 0 20px #00ff00;
+        }
+
+        .debug-console {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-width: 400px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #00ff00;
+            z-index: 9998;
+        }
+
+        /* HubSpot Form Override Styles */
+        .hs-form {
+            color: #ffffff !important;
+        }
+
+        .hs-form .hs-form-field > label {
+            color: #00ffff !important;
+            font-weight: bold !important;
+        }
+
+        .hs-form .hs-input {
+            background: rgba(0, 128, 255, 0.1) !important;
+            border: 2px solid #0080ff !important;
+            color: #ffffff !important;
+            padding: 12px !important;
+            border-radius: 8px !important;
+        }
+
+        .hs-form .hs-input:focus {
+            border-color: #ff0080 !important;
+            box-shadow: 0 0 10px rgba(255, 0, 128, 0.5) !important;
+        }
+
+        .hs-form .hs-button {
+            background: linear-gradient(45deg, #ff0080, #8000ff) !important;
+            color: white !important;
+            border: none !important;
+            padding: 15px 30px !important;
+            border-radius: 25px !important;
+            font-weight: bold !important;
+            text-transform: uppercase !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .hs-form .hs-button:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 5px 20px rgba(255, 0, 128, 0.5) !important;
+        }
+
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hidden {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+
+        /* Force visibility overrides */
+        .force-visible {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 999 !important;
+        }
+
+        @media (max-width: 768px) {
+            .neon-text { font-size: 2.5rem; }
+            .form-container { padding: 20px; margin: 0 10px; }
+            .cta-button { padding: 15px 30px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-grid"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="floating-animation">
+                <h1 class="neon-text">AI Marketing Blueprint</h1>
+                <p class="subtitle">Get Your Free Personalized AI Strategy in 60 Seconds</p>
+                <button class="cta-button" onclick="showForm()">
+                    ⚡ Start Your Free AI Analysis
+                </button>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section id="form-section" class="form-section hidden">
+            <div class="form-container">
+                <h2 class="form-title">Get Your Personalized AI Strategy</h2>
+                <p class="form-subtitle">Tell us about your business and get instant AI recommendations</p>
+
+                <div id="hubspot-form-container">
+                    <!-- HubSpot form will be loaded here -->
+                    <div style="text-align: center; padding: 40px; color: #00ffff;">
+                        <p>🔄 Loading your personalized form...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Debug Console -->
+    <div id="debug-console" class="debug-console">
+        🔬 <strong>HUBSPOT FIX CONSOLE</strong><br>
+        <div id="debug-log">Starting HubSpot diagnostic analysis...</div>
+    </div>
+
+    <script>
+        // Enhanced debugging system
+        function debugLog(message) {
+            const debugElement = document.getElementById('debug-log');
+            const timestamp = new Date().toLocaleTimeString();
+            debugElement.innerHTML += `<br>[${timestamp}] ${message}`;
+            debugElement.scrollTop = debugElement.scrollHeight;
+            console.log(`[HUBSPOT FIX] ${message}`);
+        }
+
+        // Enhanced form visibility function with HubSpot integration
+        function showForm() {
+            debugLog("🚀 CTA button clicked - starting enhanced form display");
+
+            // Smooth scroll to form section
+            document.getElementById('form-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            setTimeout(() => {
+                debugLog("📍 Scroll completed, initializing HubSpot form...");
+
+                // Show the form section
+                const formSection = document.getElementById('form-section');
+                formSection.classList.remove('hidden');
+                formSection.classList.add('force-visible');
+
+                // Add debug visual indicators
+                const formContainer = document.getElementById('hubspot-form-container');
+                formContainer.classList.add('debug-visible');
+
+                // Create HubSpot form using proper API
+                initializeHubSpotForm();
+
+                // Show success indicator
+                showDebugMessage("HUBSPOT FORM INITIALIZATION STARTED!");
+
+            }, 1000);
+        }
+
+        function initializeHubSpotForm() {
+            debugLog("🔧 Initializing HubSpot form with proper API...");
+
+            // Check if HubSpot script is loaded
+            if (typeof hbspt === 'undefined') {
+                debugLog("❌ HubSpot script not loaded, attempting fallback...");
+                loadHubSpotFallback();
+                return;
+            }
+
+            debugLog("✅ HubSpot script detected, creating form...");
+
+            try {
+                // Use HubSpot's recommended form creation method
+                hbspt.forms.create({
+                    region: "na1",
+                    portalId: "46664559", // Extracted from tracking code
+                    formId: "2t_CyZSa6RnarClD9P3IyFw", // From original URL
+                    target: "#hubspot-form-container",
+                    onFormReady: function($form) {
+                        debugLog("🎉 HubSpot form successfully loaded and ready!");
+                        showDebugMessage("HUBSPOT FORM LOADED SUCCESSFULLY!");
+
+                        // Apply custom styling
+                        setTimeout(() => {
+                            applyCustomStyling();
+                        }, 500);
+                    },
+                    onFormSubmit: function($form) {
+                        debugLog("📝 Form submitted successfully!");
+                    },
+                    onFormSubmitted: function($form) {
+                        debugLog("✅ Form submission confirmed!");
+                        showDebugMessage("FORM SUBMITTED SUCCESSFULLY!");
+                    }
+                });
+
+            } catch (error) {
+                debugLog(`❌ Error creating HubSpot form: ${error.message}`);
+                loadHubSpotFallback();
+            }
+        }
+
+        function loadHubSpotFallback() {
+            debugLog("🔄 Loading HubSpot fallback method...");
+
+            const container = document.getElementById('hubspot-form-container');
+
+            // Fallback iframe method
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://40jzlh.share-na2.hsforms.com/2t_CyZSa6RnarClD9P3IyFw';
+            iframe.style.width = '100%';
+            iframe.style.height = '600px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '15px';
+
+            container.innerHTML = '';
+            container.appendChild(iframe);
+
+            debugLog("📋 Fallback iframe method implemented");
+            showDebugMessage("FALLBACK FORM METHOD LOADED!");
+        }
+
+        function applyCustomStyling() {
+            debugLog("🎨 Applying custom cyberpunk styling...");
+
+            // Additional custom styling for HubSpot form elements
+            const formElements = document.querySelectorAll('#hubspot-form-container input, #hubspot-form-container select, #hubspot-form-container textarea');
+            formElements.forEach(element => {
+                element.style.background = 'rgba(0, 128, 255, 0.1)';
+                element.style.border = '2px solid #0080ff';
+                element.style.color = '#ffffff';
+                element.style.borderRadius = '8px';
+                element.style.padding = '12px';
+            });
+
+            debugLog("✨ Custom styling applied successfully");
+        }
+
+        function showDebugMessage(text) {
+            // Remove any existing debug message
+            const existing = document.querySelector('.debug-message');
+            if (existing) existing.remove();
+
+            // Create new debug message
+            const debugDiv = document.createElement('div');
+            debugDiv.className = 'debug-message';
+            debugDiv.textContent = text;
+            document.body.appendChild(debugDiv);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (debugDiv.parentNode) {
+                    debugDiv.parentNode.removeChild(debugDiv);
+                }
+            }, 5000);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            debugLog("📄 Page loaded, checking HubSpot script status...");
+
+            // Check HubSpot script loading status
+            setTimeout(() => {
+                if (typeof hbspt !== 'undefined') {
+                    debugLog("✅ HubSpot script loaded successfully");
+                } else {
+                    debugLog("⚠️ HubSpot script not yet loaded, will retry when needed");
+                }
+            }, 2000);
+        });
+
+        // Additional script loading verification
+        window.addEventListener('load', function() {
+            debugLog("🌐 Window fully loaded, final HubSpot check...");
+
+            setTimeout(() => {
+                const hubspotScript = document.getElementById('hs-script-loader');
+                if (hubspotScript) {
+                    debugLog("📜 HubSpot tracking script element found");
+                } else {
+                    debugLog("❌ HubSpot tracking script element missing");
+                }
+            }, 1000);
+        });
+    </script>
+
+    <!-- Domain Whitelist Instructions (Hidden) -->
+    <!--
+    IMPORTANT SETUP INSTRUCTIONS:
+
+    1. ADD DOMAIN TO HUBSPOT:
+       - Log into your HubSpot account
+       - Go to Settings > Tracking & Analytics > Tracking Code
+       - Add "ai-blueprint.aimarketingpartner.com" to approved domains
+
+    2. VERIFY TRACKING CODE:
+       - Ensure Portal ID 46664559 is correct for your account
+       - Check that form ID 2t_CyZSa6RnarClD9P3IyFw exists and is published
+
+    3. TEST FORM FUNCTIONALITY:
+       - Open browser developer tools (F12)
+       - Watch the debug console for detailed loading information
+       - Verify no CORS or security errors in browser console
+
+    4. TROUBLESHOOTING:
+       - If form doesn't load, check network tab for failed requests
+       - Verify domain is properly whitelisted in HubSpot
+       - Ensure form is published and publicly accessible
+    -->
+</body>
+</html>
