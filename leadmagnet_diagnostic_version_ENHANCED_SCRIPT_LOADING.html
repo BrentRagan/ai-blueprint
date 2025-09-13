@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Marketing Partner Lead Magnet - Diagnostic Version with Cyberpunk Styling</title>
+    <style>
+
+        :root {
+            --neon-pink: #ff0080;
+            --neon-blue: #0080ff;
+            --neon-purple: #8000ff;
+            --neon-cyan: #00ffff;
+            --dark-bg: #0a0a0a;
+            --dark-surface: #1a1a1a;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a1a 100%);
+            min-height: 100vh;
+            font-family: 'Rajdhani', sans-serif;
+            color: #00ffff; /* Default cyan text for readability */
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink), 0 0 60px var(--neon-pink);
+        }
+
+        .neon-text {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+        }
+
+        .neon-border {
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink), inset 0 0 20px rgba(255, 0, 128, 0.1);
+        }
+
+        .tech-grid {
+            background-image: 
+                linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .pulse-neon {
+            animation: pulse-neon 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-neon {
+            from {
+                box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+            }
+            to {
+                box-shadow: 0 0 30px var(--neon-pink), 0 0 60px var(--neon-pink), 0 0 90px var(--neon-pink);
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .glow-button {
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+            box-shadow: 0 0 30px var(--neon-pink);
+            transition: all 0.3s ease;
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 50px var(--neon-pink), 0 0 70px var(--neon-purple);
+            transform: translateY(-3px);
+        }
+
+        .form-container {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 50px rgba(0, 128, 255, 0.3);
+        }
+
+        .neon-input {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid var(--neon-cyan);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .neon-input:focus {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+            outline: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .tech-card {
+            background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(10, 10, 10, 0.9));
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 8px 32px rgba(0, 128, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    
+    
+        /* Ensure all text is visible with cyberpunk colors */
+        *, *::before, *::after {
+            color: inherit;
+        }
+
+        p, div, span, li, td, th, label {
+            color: #ffffff; /* White text for body content */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #00ffff; /* Cyan headings */
+        }
+    </style>
+</head>
+<body>
+<body>
+    <div class="tech-grid"></div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="floating-animation">
+                <h1 class="neon-text">AI Marketing Blueprint</h1>
+                <p class="subtitle">Get Your Free Personalized AI Strategy in 60 Seconds</p>
+                <button class="cta-button" onclick="showForm()">
+                    ⚡ Start Your Free AI Analysis
+                </button>
+            </div>
+        </section>
+
+        <!-- Form Section -->
+        <section id="form-section" class="form-section hidden">
+            <div class="form-container">
+                <h2 class="form-title">Get Your Personalized AI Strategy</h2>
+                <p class="form-subtitle">Tell us about your business and get instant AI recommendations</p>
+
+                <div id="hubspot-form-container">
+                    <!-- HubSpot form will be loaded here -->
+                    <div style="text-align: center; padding: 40px; color: #00ffff;">
+                        <p>🔄 Loading your personalized form...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Debug Console -->
+    <div id="debug-console" class="debug-console">
+        🔬 <strong>HUBSPOT FIX CONSOLE</strong><br>
+        <div id="debug-log">Starting HubSpot diagnostic analysis...</div>
+    </div>
+
+    <script>
+        // Enhanced debugging system
+        function debugLog(message) {
+            const debugElement = document.getElementById('debug-log');
+            const timestamp = new Date().toLocaleTimeString();
+            debugElement.innerHTML += `<br>[${timestamp}] ${message}`;
+            debugElement.scrollTop = debugElement.scrollHeight;
+            console.log(`[HUBSPOT FIX] ${message}`);
+        }
+
+        // Enhanced form visibility function with HubSpot integration
+        function showForm() {
+            debugLog("🚀 CTA button clicked - starting enhanced form display");
+
+            // FIRST: Show the form section BEFORE scrolling
+            const formSection = document.getElementById('form-section');
+            formSection.classList.remove('hidden');
+            formSection.classList.add('force-visible');
+
+            // THEN: Smooth scroll to the now-visible form section
+            setTimeout(() => {
+                formSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'  // Center the form in viewport
+                });
+
+                debugLog("📍 Form section shown, scrolling to form...");
+
+                setTimeout(() => {
+                    debugLog("📍 Scroll completed, initializing HubSpot form...");
+
+                    // Add debug visual indicators
+                    const formContainer = document.getElementById('hubspot-form-container');
+                    formContainer.classList.add('debug-visible');
+
+                    // Create HubSpot form using proper API
+                    initializeHubSpotForm();
+
+                    // Show success indicator
+                    showDebugMessage("HUBSPOT FORM INITIALIZATION STARTED!");
+
+                }, 800);  // Allow time for scroll animation
+            }, 100);  // Small delay to ensure visibility change is processed
+        }
+
+                function initializeHubSpotForm() {
+            debugLog("🔧 Initializing HubSpot form with enhanced loading verification...");
+
+            // Enhanced Portal ID verification
+            debugLog("🆔 Using Portal ID: 242797301 (User's verified Portal ID)");
+            debugLog("📋 Form ID: 2t_CyZSa6RnarClD9P3IyFw");
+            debugLog("🌍 Region: na1");
+
+            // Use the new loading verification system
+            if (!isHubSpotReady()) {
+                debugLog("⏳ HubSpot not ready yet, waiting for it to load...");
+
+                // Wait for HubSpot to be ready
+                waitForHubSpot((success) => {
+                    if (success) {
+                        debugLog("✅ HubSpot is now ready, creating form...");
+                        createHubSpotForm();
+                    } else {
+                        debugLog("❌ HubSpot failed to load, showing fallback...");
+                        loadHubSpotFallback();
+                    }
+                }, 15, 500); // Wait up to 15 attempts, 500ms apart = 7.5 seconds max
+                return;
+            }
+
+            debugLog("✅ HubSpot script already ready, creating form immediately...");
+            createHubSpotForm();
+        }
+
+        function createHubSpotForm() {
+            debugLog("🎯 Creating HubSpot form...");
+
+            try {
+                // Use HubSpot's recommended form creation method
+                hbspt.forms.create({
+                    region: "na1",
+                    portalId: "242797301", // Extracted from tracking code
+                    formId: "2t_CyZSa6RnarClD9P3IyFw", // From original URL
+                    target: "#hubspot-form-container",
+                    onFormReady: function() {
+                        debugLog("✅ HubSpot form loaded successfully!");
+                        showDebugMessage("SUCCESS: HUBSPOT FORM IS READY!");
+
+                        // Hide loading indicator
+                        const loadingDiv = document.querySelector('.loading-form');
+                        if (loadingDiv) {
+                            loadingDiv.style.display = 'none';
+                        }
+
+                        // Show form with animation
+                        const formContainer = document.getElementById('hubspot-form-container');
+                        formContainer.style.opacity = '0';
+                        formContainer.style.transform = 'translateY(20px)';
+                        formContainer.style.transition = 'all 0.5s ease';
+
+                        setTimeout(() => {
+                            formContainer.style.opacity = '1';
+                            formContainer.style.transform = 'translateY(0)';
+                        }, 100);
+                    },
+                    onFormSubmit: function() {
+                        debugLog("📤 Form submitted successfully!");
+                        showDebugMessage("FORM SUBMITTED SUCCESSFULLY!");
+                    },
+                    onFormSubmitted: function() {
+                        debugLog("✅ Form submission confirmed!");
+                        showDebugMessage("SUBMISSION CONFIRMED - THANK YOU!");
+
+                        // Hide form and show thank you message
+                        setTimeout(() => {
+                            const formSection = document.getElementById('form-section');
+                            formSection.innerHTML = `
+                                <div class="thank-you-message" style="text-align: center; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                                    <h2>🎉 Thank You!</h2>
+                                    <p>Your information has been submitted successfully. We'll be in touch soon!</p>
+                                </div>
+                            `;
+                        }, 1000);
+                    }
+                });
+
+            } catch (error) {
+                debugLog("❌ Error creating HubSpot form: " + error.message);
+                console.error("HubSpot form creation error:", error);
+                loadHubSpotFallback();
+            }
+        }
+
+        function loadHubSpotFallback() {
+            debugLog("🔄 Loading HubSpot fallback method...");
+
+            const container = document.getElementById('hubspot-form-container');
+
+            // Fallback iframe method
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://40jzlh.share-na2.hsforms.com/2t_CyZSa6RnarClD9P3IyFw';
+            iframe.style.width = '100%';
+            iframe.style.height = '600px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '15px';
+
+            container.innerHTML = '';
+            container.appendChild(iframe);
+
+            debugLog("📋 Fallback iframe method implemented");
+            showDebugMessage("FALLBACK FORM METHOD LOADED!");
+        }
+
+        function applyCustomStyling() {
+            debugLog("🎨 Applying custom cyberpunk styling...");
+
+            // Additional custom styling for HubSpot form elements
+            const formElements = document.querySelectorAll('#hubspot-form-container input, #hubspot-form-container select, #hubspot-form-container textarea');
+            formElements.forEach(element => {
+                element.style.background = 'rgba(0, 128, 255, 0.1)';
+                element.style.border = '2px solid #0080ff';
+                element.style.color = '#ffffff';
+                element.style.borderRadius = '8px';
+                element.style.padding = '12px';
+            });
+
+            debugLog("✨ Custom styling applied successfully");
+        }
+
+        function showDebugMessage(text) {
+            // Remove any existing debug message
+            const existing = document.querySelector('.debug-message');
+            if (existing) existing.remove();
+
+            // Create new debug message
+            const debugDiv = document.createElement('div');
+            debugDiv.className = 'debug-message';
+            debugDiv.textContent = text;
+            document.body.appendChild(debugDiv);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (debugDiv.parentNode) {
+                    debugDiv.parentNode.removeChild(debugDiv);
+                }
+            }, 5000);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            debugLog("📄 Page loaded, checking HubSpot script status...");
+
+            // Check HubSpot script loading status
+            setTimeout(() => {
+                if (typeof hbspt !== 'undefined') {
+                    debugLog("✅ HubSpot script loaded successfully");
+                } else {
+                    debugLog("⚠️ HubSpot script not yet loaded, will retry when needed");
+                }
+            }, 2000);
+        });
+
+        // Additional script loading verification
+        window.addEventListener('load', function() {
+            debugLog("🌐 Window fully loaded, final HubSpot check...");
+
+            setTimeout(() => {
+                const hubspotScript = document.getElementById('hs-script-loader');
+                if (hubspotScript) {
+                    debugLog("📜 HubSpot tracking script element found");
+                } else {
+                    debugLog("❌ HubSpot tracking script element missing");
+                }
+            }, 1000);
+        });
+    </script>
+
+    <!-- Domain Whitelist Instructions (Hidden) -->
+    <!--
+    IMPORTANT SETUP INSTRUCTIONS:
+
+    1. ADD DOMAIN TO HUBSPOT:
+       - Log into your HubSpot account
+       - Go to Settings > Tracking & Analytics > Tracking Code
+       - Add "ai-blueprint.aimarketingpartner.com" to approved domains
+
+    2. VERIFY TRACKING CODE:
+       - Ensure Portal ID 242797301 is correct for your account
+       - Check that form ID 2t_CyZSa6RnarClD9P3IyFw exists and is published
+
+    3. TEST FORM FUNCTIONALITY:
+       - Open browser developer tools (F12)
+       - Watch the debug console for detailed loading information
+       - Verify no CORS or security errors in browser console
+
+    4. TROUBLESHOOTING:
+       - If form doesn't load, check network tab for failed requests
+       - Verify domain is properly whitelisted in HubSpot
+       - Ensure form is published and publicly accessible
+    -->
+
+    <script>
+
+        // Global HubSpot loading state with enhanced diagnostics
+        window.hubspotLoadingAttempts = 0;
+        window.hubspotMaxAttempts = 5;
+        window.hubspotLoadingInterval = null;
+        window.hubspotDiagnostics = {
+            networkTests: [],
+            scriptTests: [],
+            loadingMethod: 'unknown',
+            fallbackReason: null,
+            timestamp: new Date().toISOString()
+        };
+
+        // Network connectivity test function
+        async function testNetworkConnectivity() {
+            const tests = [
+                {
+                    name: 'HubSpot CDN Primary',
+                    url: 'https://js.hubspot.com/web-interactives-embed.js',
+                    method: 'HEAD'
+                },
+                {
+                    name: 'HubSpot CDN Script',
+                    url: 'https://js.hubspot.com/forms/embed/v2.js',
+                    method: 'HEAD'
+                },
+                {
+                    name: 'HubSpot API',
+                    url: 'https://api.hubapi.com/health/v3/status',
+                    method: 'GET'
+                },
+                {
+                    name: 'Google CDN Test',
+                    url: 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js',
+                    method: 'HEAD'
+                }
+            ];
+
+            console.log('🔍 Running network connectivity tests...');
+
+            for (const test of tests) {
+                try {
+                    const startTime = Date.now();
+                    const response = await fetch(test.url, { 
+                        method: test.method,
+                        mode: 'no-cors',  // Avoid CORS issues
+                        cache: 'no-cache',
+                        signal: AbortSignal.timeout(10000)  // 10 second timeout
+                    });
+
+                    const duration = Date.now() - startTime;
+                    const result = {
+                        name: test.name,
+                        url: test.url,
+                        status: 'SUCCESS',
+                        responseTime: duration,
+                        details: `Response in ${duration}ms`
+                    };
+
+                    window.hubspotDiagnostics.networkTests.push(result);
+                    console.log(`✅ ${test.name}: ${result.details}`);
+
+                } catch (error) {
+                    const result = {
+                        name: test.name,
+                        url: test.url,
+                        status: 'FAILED',
+                        error: error.message,
+                        details: `Error: ${error.message}`
+                    };
+
+                    window.hubspotDiagnostics.networkTests.push(result);
+                    console.log(`❌ ${test.name}: ${result.details}`);
+                }
+            }
+
+            // Test alternative protocols
+            await testAlternativeProtocols();
+        }
+
+        // Test alternative loading protocols
+        async function testAlternativeProtocols() {
+            const alternatives = [
+                'https://js.hubspot.com/web-interactives-embed.js',
+                'https://js.hs-scripts.com/web-interactives-embed.js',
+                'https://js.hs-analytics.net/web-interactives-embed.js'
+            ];
+
+            console.log('🔄 Testing alternative CDN endpoints...');
+
+            for (const url of alternatives) {
+                try {
+                    const response = await fetch(url, { 
+                        method: 'HEAD', 
+                        mode: 'no-cors',
+                        signal: AbortSignal.timeout(5000)
+                    });
+
+                    window.hubspotDiagnostics.scriptTests.push({
+                        url: url,
+                        status: 'ACCESSIBLE',
+                        note: 'Alternative endpoint responding'
+                    });
+
+                    console.log(`✅ Alternative CDN accessible: ${url}`);
+
+                } catch (error) {
+                    window.hubspotDiagnostics.scriptTests.push({
+                        url: url,
+                        status: 'FAILED',
+                        error: error.message
+                    });
+
+                    console.log(`❌ Alternative CDN failed: ${url} - ${error.message}`);
+                }
+            }
+        }
+
+        // Enhanced script loading with multiple fallbacks
+        
+        // Enhanced script loading with exponential backoff and parallel attempts
+        function loadHubSpotScript() {
+            const portalId = "47877786";
+            const scriptUrls = [
+                `https://js.hubspot.com/web-interactives-embed.js`,
+                `https://js.hs-scripts.com/web-interactives-embed.js`, 
+                `https://js.hs-analytics.net/web-interactives-embed.js`
+            ];
+
+            // Add preload hints for faster loading
+            scriptUrls.forEach(url => {
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.href = url;
+                preloadLink.as = 'script';
+                preloadLink.crossOrigin = 'anonymous';
+                document.head.appendChild(preloadLink);
+            });
+
+            let currentUrlIndex = 0;
+            let globalAttempts = 0;
+            const maxGlobalAttempts = 5;
+
+            function tryLoadScript(urlIndex = 0, attemptCount = 0) {
+                const maxAttemptsPerUrl = 2;
+                globalAttempts++;
+
+                if (globalAttempts > maxGlobalAttempts) {
+                    console.log('❌ Maximum global attempts reached, falling back to iframe');
+                    window.hubspotDiagnostics.fallbackReason = 'All enhanced loading attempts exhausted';
+                    loadHubSpotIframeFallback();
+                    return;
+                }
+
+                if (urlIndex >= scriptUrls.length) {
+                    console.log('❌ All script URLs failed, retrying with enhanced strategy');
+                    window.hubspotDiagnostics.fallbackReason = 'All script URLs failed - attempting enhanced retry';
+                    // Reset and try again with longer timeout
+                    setTimeout(() => tryLoadScript(0, 0), Math.pow(2, attemptCount) * 2000);
+                    return;
+                }
+
+                const script = document.createElement('script');
+                const currentUrl = scriptUrls[urlIndex];
+
+                // Enhanced script attributes for better loading
+                script.type = 'text/javascript';
+                script.src = currentUrl;
+                script.async = true;
+                script.defer = true;
+                script.crossOrigin = 'anonymous';
+                script.referrerPolicy = 'no-referrer-when-downgrade';
+
+                console.log(`🔄 Enhanced loading attempt ${globalAttempts} for: ${currentUrl}`);
+
+                let loadTimeout;
+                let scriptLoaded = false;
+
+                script.onload = function() {
+                    if (scriptLoaded) return; // Prevent double execution
+                    scriptLoaded = true;
+
+                    clearTimeout(loadTimeout);
+                    console.log(`✅ HubSpot script loaded successfully from: ${currentUrl}`);
+
+                    window.hubspotDiagnostics.loadingMethod = 'enhanced-script';
+                    window.hubspotDiagnostics.scriptTests.push({
+                        url: currentUrl,
+                        status: 'LOADED',
+                        attempt: globalAttempts,
+                        note: 'Enhanced loading successful'
+                    });
+
+                    // Initialize with enhanced error handling
+                    enhancedFormInitialization();
+                };
+
+                script.onerror = function(error) {
+                    if (scriptLoaded) return; // Prevent double execution
+                    scriptLoaded = true;
+
+                    clearTimeout(loadTimeout);
+                    console.log(`❌ Enhanced loading failed for: ${currentUrl}, attempt ${attemptCount + 1}`);
+
+                    window.hubspotDiagnostics.scriptTests.push({
+                        url: currentUrl,
+                        status: 'FAILED',
+                        attempt: globalAttempts,
+                        error: 'Enhanced script load error',
+                        errorType: error.type || 'unknown'
+                    });
+
+                    // Exponential backoff retry strategy
+                    if (attemptCount < maxAttemptsPerUrl - 1) {
+                        // Retry same URL with exponential backoff
+                        const retryDelay = Math.pow(2, attemptCount + 1) * 1000; // 2s, 4s, 8s...
+                        console.log(`🔄 Retrying ${currentUrl} in ${retryDelay/1000}s (attempt ${attemptCount + 2})`);
+                        setTimeout(() => tryLoadScript(urlIndex, attemptCount + 1), retryDelay);
+                    } else {
+                        // Move to next URL
+                        const nextUrlDelay = Math.pow(2, globalAttempts) * 500; // 1s, 2s, 4s...
+                        setTimeout(() => tryLoadScript(urlIndex + 1, 0), nextUrlDelay);
+                    }
+                };
+
+                // Enhanced timeout with longer duration for slow networks
+                const timeoutDuration = 15000 + (attemptCount * 5000); // 15s, 20s, 25s...
+                loadTimeout = setTimeout(() => {
+                    if (scriptLoaded) return; // Already loaded
+                    scriptLoaded = true;
+
+                    console.log(`⏰ Enhanced timeout (${timeoutDuration/1000}s) for: ${currentUrl}`);
+
+                    window.hubspotDiagnostics.scriptTests.push({
+                        url: currentUrl,
+                        status: 'TIMEOUT',
+                        attempt: globalAttempts,
+                        timeout: timeoutDuration,
+                        note: 'Enhanced timeout exceeded'
+                    });
+
+                    // Remove failed script and trigger retry
+                    if (script.parentNode) {
+                        script.parentNode.removeChild(script);
+                    }
+                    script.onerror(new Error('Enhanced timeout'));
+                }, timeoutDuration);
+
+                // Append script to start loading
+                document.head.appendChild(script);
+            }
+
+            // Start enhanced loading process
+            tryLoadScript(0, 0);
+        }
+
+
+        // Enhanced HubSpot Tracking Script Detection and Initialization
+        function initializeHubSpotTracking() {
+            console.log('🔍 Initializing HubSpot tracking detection...');
+
+            // Check for existing tracking script
+            const existingTrackingScript = document.querySelector('script[src*="hs-scripts"]');
+            if (existingTrackingScript) {
+                console.log('✅ HubSpot tracking script already present');
+                return;
+            }
+
+            // Add HubSpot tracking script with enhanced loading
+            const trackingScript = document.createElement('script');
+            trackingScript.type = 'text/javascript';
+            trackingScript.id = 'hs-script-loader';
+            trackingScript.async = true;
+            trackingScript.defer = true;
+            trackingScript.src = '//js.hs-scripts.com/47877786.js';
+
+            trackingScript.onload = function() {
+                console.log('✅ HubSpot tracking script loaded successfully');
+                window.hubspotDiagnostics = window.hubspotDiagnostics || {};
+                window.hubspotDiagnostics.trackingLoaded = true;
+
+                // Initialize tracking if available
+                if (window._hsq) {
+                    console.log('✅ HubSpot tracking queue initialized');
+                }
+            };
+
+            trackingScript.onerror = function() {
+                console.log('⚠️ HubSpot tracking script failed to load, continuing without tracking');
+                window.hubspotDiagnostics = window.hubspotDiagnostics || {};
+                window.hubspotDiagnostics.trackingLoaded = false;
+            };
+
+            document.head.appendChild(trackingScript);
+            console.log('📤 HubSpot tracking script injection initiated');
+        }
+
+        // Enhanced form initialization with better error handling
+        function enhancedFormInitialization() {
+            // Initialize tracking first
+            initializeHubSpotTracking();
+
+            // Enhanced detection of HubSpot availability
+            let formInitAttempts = 0;
+            const maxFormAttempts = 15; // Increased from 10
+
+            function waitForHubSpot() {
+                formInitAttempts++;
+
+                if (window.hbspt && window.hbspt.forms && typeof window.hbspt.forms.create === 'function') {
+                    console.log(`✅ HubSpot forms API ready after ${formInitAttempts} attempts`);
+                    createHubSpotForms();
+                    return;
+                }
+
+                if (formInitAttempts < maxFormAttempts) {
+                    const waitTime = Math.min(500 + (formInitAttempts * 200), 3000); // Progressive wait
+                    console.log(`🔄 Waiting for HubSpot forms API... attempt ${formInitAttempts}/${maxFormAttempts} (${waitTime}ms)`);
+                    setTimeout(waitForHubSpot, waitTime);
+                } else {
+                    console.log('❌ HubSpot forms API not available after maximum attempts');
+                    window.hubspotDiagnostics = window.hubspotDiagnostics || {};
+                    window.hubspotDiagnostics.formInitFailed = true;
+
+                    // Fallback to iframe method
+                    loadHubSpotIframeFallback();
+                }
+            }
+
+            waitForHubSpot();
+        }
+
+
+
+        // Enhanced HubSpot forms initialization
+        function initializeHubSpotForms() {
+            let attempts = 0;
+            const maxAttempts = 10;
+
+            function checkAndInitialize() {
+                attempts++;
+
+                if (window.hbspt && window.hbspt.forms) {
+                    console.log('✅ HubSpot forms API available, creating forms');
+                    createHubSpotForms();
+                    window.hubspotDiagnostics.loadingMethod = 'script-success';
+                    return;
+                }
+
+                if (attempts < maxAttempts) {
+                    console.log(`🔄 HubSpot forms API not ready, attempt ${attempts}/${maxAttempts}`);
+                    setTimeout(checkAndInitialize, 500);
+                } else {
+                    console.log('❌ HubSpot forms API never became available, using iframe fallback');
+                    window.hubspotDiagnostics.fallbackReason = 'Forms API not available';
+                    loadHubSpotIframeFallback();
+                }
+            }
+
+            checkAndInitialize();
+        }
+
+        // Create HubSpot forms when API is available
+        function createHubSpotForms() {
+            const portalId = "47877786";
+            const formId = "5ecb4e47-7e23-42a4-bb59-71249acded4f";
+
+            try {
+                // Main form
+                if (document.getElementById('hubspot-form-main')) {
+                    window.hbspt.forms.create({
+                        region: "na1",
+                        portalId: portalId,
+                        formId: formId,
+                        target: '#hubspot-form-main',
+                        onFormReady: function() {
+                            console.log('✅ Main HubSpot form loaded successfully');
+                        },
+                        onFormSubmit: function() {
+                            console.log('📝 Main form submitted');
+                        }
+                    });
+                }
+
+                // Footer form
+                if (document.getElementById('hubspot-form-footer')) {
+                    window.hbspt.forms.create({
+                        region: "na1",
+                        portalId: portalId,
+                        formId: formId,
+                        target: '#hubspot-form-footer',
+                        onFormReady: function() {
+                            console.log('✅ Footer HubSpot form loaded successfully');
+                        },
+                        onFormSubmit: function() {
+                            console.log('📝 Footer form submitted');
+                        }
+                    });
+                }
+
+            } catch (error) {
+                console.error('❌ Error creating HubSpot forms:', error);
+                window.hubspotDiagnostics.fallbackReason = `Form creation error: ${error.message}`;
+                loadHubSpotIframeFallback();
+            }
+        }
+
+        // Enhanced iframe fallback with better implementation
+        function loadHubSpotIframeFallback() {
+            console.log('🔄 Loading HubSpot iframe fallback...');
+            window.hubspotDiagnostics.loadingMethod = 'iframe-fallback';
+
+            const portalId = "47877786";
+            const formId = "5ecb4e47-7e23-42a4-bb59-71249acded4f";
+            const region = "na1";
+
+            // Enhanced iframe with better styling and error handling
+            const iframeHtml = `
+                <div class="hubspot-iframe-container" style="
+                    width: 100%;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    border: 1px solid #e1e5e9;
+                    border-radius: 8px;
+                    background: #ffffff;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                ">
+                    <iframe 
+                        src="https://share.hsforms.com/1${formId}/${portalId}"
+                        width="100%" 
+                        height="500"
+                        frameborder="0"
+                        scrolling="auto"
+                        style="border: none; border-radius: 4px;"
+                        title="AI Marketing Blueprint Form"
+                        loading="lazy"
+                        onload="console.log('✅ HubSpot iframe loaded successfully')"
+                        onerror="console.log('❌ HubSpot iframe failed to load')"
+                    ></iframe>
+                    <div style="
+                        margin-top: 10px;
+                        font-size: 12px;
+                        color: #666;
+                        text-align: center;
+                    ">
+                        Secure form powered by HubSpot
+                    </div>
+                </div>
+            `;
+
+            // Replace form containers with iframes
+            const containers = ['hubspot-form-main', 'hubspot-form-footer'];
+            containers.forEach(containerId => {
+                const container = document.getElementById(containerId);
+                if (container) {
+                    container.innerHTML = iframeHtml;
+                    console.log(`✅ Iframe fallback applied to ${containerId}`);
+                }
+            });
+        }
+
+        // Display comprehensive diagnostics
+        function displayDiagnostics() {
+            console.log('📊 HubSpot Loading Diagnostics Report');
+            console.log('=====================================');
+            console.log(`Timestamp: ${window.hubspotDiagnostics.timestamp}`);
+            console.log(`Loading Method: ${window.hubspotDiagnostics.loadingMethod}`);
+            console.log(`Fallback Reason: ${window.hubspotDiagnostics.fallbackReason || 'None'}`);
+
+            console.log('\n🌐 Network Tests:');
+            window.hubspotDiagnostics.networkTests.forEach(test => {
+                console.log(`  ${test.status === 'SUCCESS' ? '✅' : '❌'} ${test.name}: ${test.details}`);
+            });
+
+            console.log('\n📜 Script Tests:');
+            window.hubspotDiagnostics.scriptTests.forEach(test => {
+                console.log(`  ${test.status.includes('SUCCESS') || test.status === 'LOADED' ? '✅' : '❌'} ${test.url}: ${test.status}`);
+            });
+
+            // Also create a visible diagnostic panel for debugging
+            createDiagnosticPanel();
+        }
+
+        // Create visible diagnostic panel
+        function createDiagnosticPanel() {
+            const panel = document.createElement('div');
+            panel.id = 'hubspot-diagnostics';
+            panel.style.cssText = `
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                width: 300px;
+                max-height: 400px;
+                background: #f8f9fa;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                padding: 15px;
+                font-family: monospace;
+                font-size: 12px;
+                z-index: 10000;
+                overflow-y: auto;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+
+            let html = `
+                <div style="font-weight: bold; margin-bottom: 10px; color: #495057;">
+                    🔍 HubSpot Diagnostics
+                </div>
+                <div><strong>Method:</strong> ${window.hubspotDiagnostics.loadingMethod}</div>
+                <div><strong>Time:</strong> ${new Date().toLocaleTimeString()}</div>
+            `;
+
+            if (window.hubspotDiagnostics.fallbackReason) {
+                html += `<div style="color: #dc3545;"><strong>Fallback:</strong> ${window.hubspotDiagnostics.fallbackReason}</div>`;
+            }
+
+            html += '<div style="margin: 10px 0; font-weight: bold;">Network Tests:</div>';
+            window.hubspotDiagnostics.networkTests.forEach(test => {
+                const color = test.status === 'SUCCESS' ? '#28a745' : '#dc3545';
+                html += `<div style="color: ${color};">• ${test.name}: ${test.status}</div>`;
+            });
+
+            html += '<div style="margin: 10px 0; font-weight: bold;">Script Tests:</div>';
+            window.hubspotDiagnostics.scriptTests.forEach(test => {
+                const color = test.status === 'LOADED' || test.status === 'ACCESSIBLE' ? '#28a745' : '#dc3545';
+                html += `<div style="color: ${color};">• ${test.status}</div>`;
+            });
+
+            html += `
+                <button onclick="this.parentElement.remove()" style="
+                    margin-top: 10px;
+                    padding: 5px 10px;
+                    background: #6c757d;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                ">Close</button>
+            `;
+
+            panel.innerHTML = html;
+            document.body.appendChild(panel);
+        }
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🚀 Starting HubSpot integration with enhanced diagnostics...');
+
+            // Run network tests first
+            await testNetworkConnectivity();
+
+            // Then try to load HubSpot script
+            loadHubSpotScript();
+
+            // Display diagnostics after a delay
+            setTimeout(displayDiagnostics, 15000);
+        });
+
+        // Also run tests immediately if DOM is already loaded
+        if (document.readyState === 'loading') {
+            // DOM is still loading, wait for DOMContentLoaded
+        } else {
+            // DOM is already loaded, run immediately
+            setTimeout(async () => {
+                console.log('🚀 Starting HubSpot integration (immediate)...');
+                await testNetworkConnectivity();
+                loadHubSpotScript();
+                setTimeout(displayDiagnostics, 15000);
+            }, 100);
+        }
+    
+    </script>
+</body>
+</html>
